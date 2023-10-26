@@ -51,38 +51,30 @@ Ubuntu setup by running the following commands.
   #### Base Installer
   * Run the following code in terminal
 
-	wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
-
-	sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
-	wget https://developer.download.nvidia.com/compute/cuda/12.3.0/local_installers/cuda-repo-ubuntu2204-12-3-local_12.3.0-545.23.06-1_amd64.deb
-
-	sudo dpkg -i cuda-repo-ubuntu2204-12-3-local_12.3.0-545.23.06-1_amd64.deb
-
-	sudo cp /var/cuda-repo-ubuntu2204-12-3-local/cuda-*-keyring.gpg /usr/share/keyrings/
-
-	sudo apt-get update
-
-	sudo apt-get -y install cuda-toolkit-12-3
+        wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-ubuntu2204.pin
+        sudo mv cuda-ubuntu2204.pin /etc/apt/preferences.d/cuda-repository-pin-600
+        wget https://developer.download.nvidia.com/compute/cuda/12.3.0/local_installers/cuda-repo-ubuntu2204-12-3-local_12.3.0-545.23.06-1_amd64.deb
+    	sudo dpkg -i cuda-repo-ubuntu2204-12-3-local_12.3.0-545.23.06-1_amd64.deb
+        sudo cp /var/cuda-repo-ubuntu2204-12-3-local/cuda-*-keyring.gpg /usr/share/keyrings/
+    	sudo apt-get update
+    	sudo apt-get -y install cuda-toolkit-12-3
 
   #### Add Cuda to Path
   * in Terminal activate your environment and write the following codes.
 
-  	`sudo nano ~/.ba`
+    	sudo nano ~/.bashrc
 
   * Press ESC then i for inserting mode.
   * Now go to end and paste these.
   
-  		if [ -d "/usr/local/cuda/bin/" ]; then
-
-			export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
-
-    		export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
-
-		fi
+        if [ -d "/usr/local/cuda/bin/" ]; then
+    		export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
+		export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}
+        fi
 
   <b>Verification</b>
-    
-	nvcc --version
+
+      nvcc --version
 
 	<img src = 'images\nvcc.png'>
 
@@ -93,13 +85,13 @@ Ubuntu setup by running the following commands.
 
 * Once downloaded, un-tar the file and copy the contents to their respective locations:
 
-		$ tar -xvf cudnn-linux-x86_64-8.9.5.29_cuda12-archive.tar.xz
+      $ tar -xvf cudnn-linux-x86_64-8.9.5.29_cuda12-archive.tar.xz
 
 * Copy the following files into the CUDA toolkit directory.
 
-		$ sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include 
-		$ sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64 
-		$ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+      $ sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include
+      $ sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64 
+      $ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 
 ## 3. Now install Tensorflow and PyTorch for verification
 
