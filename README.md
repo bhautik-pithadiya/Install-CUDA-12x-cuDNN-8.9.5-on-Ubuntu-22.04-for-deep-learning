@@ -85,13 +85,13 @@ Ubuntu setup by running the following commands.
 
 * Once downloaded, un-tar the file and copy the contents to their respective locations:
 
-      $ tar -xvf cudnn-linux-x86_64-8.9.5.29_cuda12-archive.tar.xz
+      tar -xvf cudnn-linux-x86_64-8.9.5.29_cuda12-archive.tar.xz
 
 * Copy the following files into the CUDA toolkit directory.
 
-      $ sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include
-      $ sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64 
-      $ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
+      sudo cp cudnn-*-archive/include/cudnn*.h /usr/local/cuda/include
+      sudo cp -P cudnn-*-archive/lib/libcudnn* /usr/local/cuda/lib64 
+      sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 
 ## 3. Now install Tensorflow and PyTorch for verification
 
